@@ -1,5 +1,5 @@
 
-from app.views import ServiceViewSet, ReviewViewSet, OrderViewSet  # Импортируем view из приложения
+from app.views import ServiceViewSet, UserViewSet, OrderViewSet  # Импортируем view из приложения
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
@@ -16,14 +16,14 @@ schema_view = get_schema_view(
         description="You can choose any service",
     ),
     public=True,
-    permission_classes=[permissions.IsAuthenticated],  # Доступ к Swagger только для авторизованных
+    # permission_classes=[permissions.IsAuthenticated],  # Доступ к Swagger только для авторизованных
 )
 
 
 # Создаем роутер и регистрируем viewsets
 router = DefaultRouter()
 router.register(r'services', ServiceViewSet)
-router.register(r'reviews', ReviewViewSet)
+router.register(r'user', UserViewSet)
 router.register(r'order', OrderViewSet)
 
 # Основные маршруты

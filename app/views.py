@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Service, Review, Order
-from .serializers import ServiceSerializer, ReviewSerializer, OrderSerializer
+from .models import Service, User, Order
+from .serializers import ServiceSerializer, UserSerializer, OrderSerializer
 from rest_framework.permissions import IsAuthenticated
 
 
@@ -9,9 +9,9 @@ class ServiceViewSet(viewsets.ModelViewSet):
     serializer_class = ServiceSerializer
     permission_classes = [IsAuthenticated]
 
-class ReviewViewSet(viewsets.ModelViewSet):
-    queryset = Review.objects.all()
-    serializer_class = ReviewSerializer
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
     permission_classes = [IsAuthenticated]
 
 class OrderViewSet(viewsets.ModelViewSet):
